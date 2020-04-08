@@ -6,13 +6,19 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Frederick&#39;s blog</title>
+  <title>(编译原理) 一个极简语言的设计 | Frederick&#39;s blog</title>
   <meta name="author" content="Frederick Zhang">
+  
+  <meta name="description" content="最近正在阅读虚拟机的设计，越发感觉到迫切地需要自己实现一个语言的虚拟机，在此基础上，我可以尝试不同的优化策略,下面是这个语言的一些基本特征
+类型系统
+基本类型支持int，bool，char
+指针类型，其中保存的是变量的地址
+结构类型，可以在结构类型中使用基本类型作为属性，并为其分配实际的空间；同时支">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="(编译原理) 一个极简语言的设计"/>
   <meta property="og:site_name" content="Frederick&#39;s blog"/>
 
   
@@ -87,51 +93,29 @@ var _hmt = _hmt || [];
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header logo">
-  <h1>Frederick&#39;s blog<span class="blink-fast">∎</span></h1>
-</div>
+    	 
 
-<div class="row page">
 
 	
+		<div class="page-header">
+			<h1> (编译原理) 一个极简语言的设计</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
 	<div class="col-md-9">
 	
 
-		<div class="slogan">
+	<!-- content -->
+	<div class="mypage">		
+	  		
 
-
-		<i class="fa fa-heart blink-slow"></i>
-
-		Keep and carry on.
-
-</div>    
-
-		<div id="top_search"></div>
-		<div class="mypage">
-		
-		<!-- title and entry -->
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2020/04/08/[编译原理]一个极简语言的设计/" >(编译原理) 一个极简语言的设计</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2020-04-08  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>最近正在阅读虚拟机的设计，越发感觉到迫切地需要自己实现一个语言的虚拟机，在此基础上，我可以尝试不同的优化策略,下面是这个语言的一些基本特征</p>
+	  <p>最近正在阅读虚拟机的设计，越发感觉到迫切地需要自己实现一个语言的虚拟机，在此基础上，我可以尝试不同的优化策略,下面是这个语言的一些基本特征</p>
 <h2 id="类型系统"><a href="#类型系统" class="headerlink" title="类型系统"></a>类型系统</h2><ul>
 <li>基本类型支持int，bool，char</li>
 <li>指针类型，其中保存的是变量的地址</li>
@@ -199,170 +183,75 @@ var _hmt = _hmt || [];
 <ul>
 <li>4.完成底层虚拟机指令集的设计，并逐个实现</li>
 </ul>
-
-	
+	  
 	</div>
-  <a type="button" href="/2020/04/08/[编译原理]一个极简语言的设计/#more" class="btn btn-default more">Read More</a>
-</div>
 
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2020/04/08/interpreter-and-compiler/" >（编译原理）-解释器与编译器</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2020-04-08  </div>
-		</div>
-	</div>
-	
+	<div>
+  	<center>
+	<div class="pagination">
 
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="根据在-lt-虚拟机设计与实现-以JVM为例-gt-中的知识，我试图在这篇博客中说明解释器与编译器的区别与联系"><a href="#根据在-lt-虚拟机设计与实现-以JVM为例-gt-中的知识，我试图在这篇博客中说明解释器与编译器的区别与联系" class="headerlink" title="根据在&lt;虚拟机设计与实现-以JVM为例&gt;中的知识，我试图在这篇博客中说明解释器与编译器的区别与联系"></a>根据在&lt;虚拟机设计与实现-以JVM为例&gt;中的知识，我试图在这篇博客中说明解释器与编译器的区别与联系</h2>
-	
-	</div>
-  <a type="button" href="/2020/04/08/interpreter-and-compiler/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2020/04/08/hello-world/" >Hello World</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2020-04-08  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><ul>
-<li>一个CS专业的学生<ul>
-<li>就读于武汉大学弘毅学堂，计算机方向大三</li>
-<li>想成为一个编译器工程师</li>
-<li>对操作系统、计算机图形学、自然语言处理十分感兴趣</li>
-<li>短期计划：申请欧洲高校的CS Master || 进入国内企业编译器相关的部分</li>
-</ul>
-</li>
-<li>I like<ul>
-<li>Pop Music</li>
-<li>Basketball</li>
-<li>Delicious Food</li>
-</ul>
-</li>
-</ul>
-<h2 id="搭建博客的初衷"><a href="#搭建博客的初衷" class="headerlink" title="搭建博客的初衷"></a>搭建博客的初衷</h2><ul>
-<li>通过写作，更加清晰地了解自己</li>
-<li>表达自己在技术和生活方面的思考</li>
-</ul>
-<h2 id="这个博客主要用来分享："><a href="#这个博客主要用来分享：" class="headerlink" title="这个博客主要用来分享："></a>这个博客主要用来分享：</h2><ul>
-<li>技术文章</li>
-<li>申请欧洲高校的过程和经验</li>
-<li>公司面试的经验（热经/凉经）</li>
-<li>自己Naive的人生思考</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2020/04/08/hello-world/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
-
-   
-</div>
-
-  		</center>
-		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
-	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
-
-
-		
-			
-		
-			
-
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
     
-      <li>
-        <a href="/2020/04/08/[编译原理]一个极简语言的设计/" ><i class="fa fa-file-o"></i>(编译原理) 一个极简语言的设计</a>
-      </li>
     
-      <li>
-        <a href="/2020/04/08/interpreter-and-compiler/" ><i class="fa fa-file-o"></i>（编译原理）-解释器与编译器</a>
-      </li>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
     
-      <li>
-        <a href="/2020/04/08/hello-world/" ><i class="fa fa-file-o"></i>Hello World</a>
-      </li>
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-  </ul>
+    <a href="/2020/04/08/interpreter-and-compiler/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
 </div>
 
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
 		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/fredericktutu" title="Frederick's Github repository." target="_blank"]);">My Github</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="fredericktuu.github.io" title="BOOTSTRA.386's Github repository." target="_blank"]);">My Github PS</a></li>
-	
-	</ul>
-</div>
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
 
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2020-04-08 
+	</div>
+	
 
+	<!-- categories -->
+    
+
+	<!-- tags -->
 		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
 
+	<!-- toc -->
+	<div class="meta-widget">
 	
+	</div>
 	
-</div> <!-- row-fluid -->
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
 	</div>
   </div>
   <div class="container-narrow">
