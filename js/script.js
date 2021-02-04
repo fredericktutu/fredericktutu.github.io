@@ -85,26 +85,6 @@
     window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
   });
 
-  // Caption
-  $('.article-entry').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-
-      var alt = this.alt;
-
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-
-  if ($.fancybox){
-    $('.fancybox').fancybox();
-  }
 
   // Mobile nav
   var $container = $('#container'),
@@ -135,3 +115,11 @@
     $container.removeClass('mobile-nav-on');
   });
 })(jQuery);
+
+var accordions=document.querySelectorAll('button.fold-button');
+for(var i=0;i<accordions.length;i++){
+    accordions[i].onclick=function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+    }
+}
