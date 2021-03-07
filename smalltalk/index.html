@@ -62,7 +62,7 @@
 
         <div class="article-meta">
           <a href="/smalltalk/index.html" class="article-date">
-  <time datetime="2021-03-06T14:54:52.226Z" itemprop="datePublished">2021-03-06</time>
+  <time datetime="2021-03-07T06:27:14.304Z" itemprop="datePublished">2021-03-07</time>
 </a>
           
           
@@ -71,7 +71,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="2021-3-6"><a href="#2021-3-6" class="headerlink" title="2021/3/6"></a>2021/3/6</h3><p>“Compiler compiler”被用于自动生成编程语言的解析器。我先后使用过YACC，JavaCC和ANTLR来实现不同类型的编程语言。</p>
+        <h3 id="2021-3-7"><a href="#2021-3-7" class="headerlink" title="2021/3/7"></a>2021/3/7</h3><p>一个编程语言在设计阶段一些很优雅的想法，有时候在实际操作上会带来很多麻烦，比如说：</p>
+<h4 id="列表中的逗号"><a href="#列表中的逗号" class="headerlink" title="列表中的逗号"></a>列表中的逗号</h4><p>对我们来说，列表的最后一个元素后不加逗号，是比较自然的事情，加了以后就会觉得不美观。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lst = [<span class="number">1</span>,</span><br><span class="line">       <span class="number">2</span>,</span><br><span class="line">       <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>但是在生产中，如果我们要自己写一个自动生成代码的工具，或是要解析部分代码，就会发现，为了最后一个元素少用的逗号将会花费额外很多的时间。即使不做以上的事情，考虑这个场景：我们如果想要在列表尾部追加一个新元素，或者把列表最后一个元素删掉，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''优雅的语法'''</span></span><br><span class="line"> <span class="comment"># 添加元素 -&gt; 3次操作</span></span><br><span class="line"> lst = [<span class="number">1</span>,</span><br><span class="line">        <span class="number">2</span>,</span><br><span class="line">-       <span class="number">3</span></span><br><span class="line">+       <span class="number">3</span>,</span><br><span class="line">+       <span class="number">4</span></span><br><span class="line"> ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除最后一个元素 -&gt; 2次操作</span></span><br><span class="line"> lst = [<span class="number">1</span>,</span><br><span class="line">-       <span class="number">2</span>,</span><br><span class="line">+       <span class="number">2</span></span><br><span class="line">-       <span class="number">3</span></span><br><span class="line"> ]</span><br><span class="line"></span><br><span class="line"><span class="string">'''“丑陋”的语法'''</span></span><br><span class="line"><span class="comment"># 添加元素 -&gt; 1次操作</span></span><br><span class="line"> lst = [<span class="number">1</span>,</span><br><span class="line">        <span class="number">2</span>,</span><br><span class="line">        <span class="number">3</span>,</span><br><span class="line">+       <span class="number">4</span>,       </span><br><span class="line"> ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除最后一个元素 -&gt; 1次操作</span></span><br><span class="line"> lst = [<span class="number">1</span>,</span><br><span class="line">        <span class="number">2</span>, </span><br><span class="line">-       <span class="number">3</span>,</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="2021-3-6"><a href="#2021-3-6" class="headerlink" title="2021/3/6"></a>2021/3/6</h3><p>“Compiler compiler”被用于自动生成编程语言的解析器。我先后使用过YACC，JavaCC和ANTLR来实现不同类型的编程语言。</p>
 <p>YACC给我的印象是：使用它加深了我对编译原理前端知识的理解。而我对JavaCC的印象是：语法制导语义的代码和语法定义混合在一起，在编程语言的规模变大以后会很混乱。</p>
 <p>而ANTLR是一个让我眼前一亮的东西。原本看过它的作者的《Language Implement Patterns》,最近因为工作需要，我要编写一个根据protobuf文件自动生成测试代码的工具，便使用了ANTLR。第一个点是，它的目标语言有很多种，设计完自己的语言后，你可以让ANTLR为这款语言生成Python/Java/C++…版本的解析器。在具体使用中也有很多很好用的点：通过重写它提供的<code>enter</code>和<code>exit</code>方法，可以将语法制导语义和语言的定义分开，这样的可读性非常好，同时还可以自己用<code>#</code>定义匹配的pattern，减少了一些重复代码。最后，它提供的用来查找token/子语法元素的方法很强大，可以直接通过名字查找（若有同名，则会返回list），也可以通过<code>getChild(i)</code>的方法在名字不确定的情况下找到该元素，这里让我想起了JavaScript中操作DOM元素的一些内置方法。</p>
 <p>因此，若想学习编译原理，学习YACC是很好的选择。如果既想学编译原理，又想学如何把程序设计的很方便好用且美观，可以学习ANTLR。</p>
