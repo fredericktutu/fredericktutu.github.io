@@ -62,7 +62,7 @@
 
         <div class="article-meta">
           <a href="/smalltalk/index.html" class="article-date">
-  <time datetime="2021-03-07T06:32:38.973Z" itemprop="datePublished">2021-03-07</time>
+  <time datetime="2021-03-17T18:47:53.588Z" itemprop="datePublished">2021-03-18</time>
 </a>
           
           
@@ -71,7 +71,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="2021-3-7"><a href="#2021-3-7" class="headerlink" title="2021/3/7"></a>2021/3/7</h3><p>一个编程语言在设计阶段一些很优雅的想法，有时候在实际操作上会带来很多麻烦，比如说：</p>
+        <h3 id="2021-3-18"><a href="#2021-3-18" class="headerlink" title="2021/3/18"></a>2021/3/18</h3><h4 id="不稳定的进步"><a href="#不稳定的进步" class="headerlink" title="不稳定的进步"></a>不稳定的进步</h4><p>有时，有短暂的时间，会感觉自己的唱歌水平提高了，但是这样的好状态延续不到第二天。这让我想起以前写一个程序，第一次提交增加了新功能，第二次提交却发现原来的功能跑不通了。最后的原因还是对程序逻辑理解不深入，因此开发的思路是片面的而非系统的。</p>
+<p>在我的实习生涯中，从两个前辈那里学到的共同经验就是：硬刚有时就是解决问题的捷径。比如说，需要一个Linux命令来修改文件权限，这个时候，有两种选择：</p>
+<ul>
+<li>在搜索一些，看看有没有什么博客/回答，可以尽快解决这个问题。</li>
+<li>去理解这个背后的原理，然后尝试自己去写命令<br>如果时间不紧急的话，后者是更好的选择:虽然复杂一点，但是付出和回报是成正比的。</li>
+</ul>
+<p>我理解的硬刚，就是把一个东西系统性的学习一遍，虽然学习的过程会麻烦一点，但是之后会节省自己很多时间。用省下来的时间去攻克一些更难的问题，自己的水平也会提升一个层次。</p>
+<p>因此，对于我自己来说，自己专业的知识，那必须是：既要系统性地学习，又要具有深度。同时，自己的爱好（像是唱歌、投篮），如果想要让它们持续开花结果的话，也要更认真地对待，系统性地去学习。</p>
+<hr>
+<h3 id="2021-3-7"><a href="#2021-3-7" class="headerlink" title="2021/3/7"></a>2021/3/7</h3><p>一个编程语言在设计阶段一些很优雅的想法，有时候在实际操作上会带来很多麻烦，比如说：</p>
 <h4 id="列表中的逗号"><a href="#列表中的逗号" class="headerlink" title="列表中的逗号"></a>列表中的逗号</h4><p>对我们来说，列表的最后一个元素后不加逗号，是比较自然的事情，加了以后就会觉得不美观。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lst = [<span class="number">1</span>,</span><br><span class="line">       <span class="number">2</span>,</span><br><span class="line">       <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
 <p>但是在生产中，如果我们要自己写一个自动生成代码的工具，或是要解析部分代码，就会发现，为了最后一个元素少用的逗号将会花费额外很多的时间。即使不做以上的事情，考虑这个场景：我们如果想要在列表尾部追加一个新元素，或者把列表最后一个元素删掉，如下所示：</p>
