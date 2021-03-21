@@ -77,9 +77,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2021-03-16"><a href="#2021-03-16" class="headerlink" title="2021-03-16"></a>2021-03-16</h2><p>今天研究了一下Go的ssa格式，发现和<code>SSA Book</code>第一章讲的基本形式差不多。</p>
-<p>然后在API上，目前已经知道了怎么去探索一个<code>package</code>里的所有函数。目前可以将所有需要的函数提取出来了。</p>
-<p>接下来就是要对<code>main</code>函数进行<code>walk</code>操作，先把所有<code>channel</code>和<code>goroutine</code>的基本信息都搜集出来，能够知道每一处管道操作的对象都是哪个实体；基于以上，然后再考虑对每个函数进行一次自动机构建。</p>
+        <h2 id="2021-03-22"><a href="#2021-03-22" class="headerlink" title="2021-03-22"></a>2021-03-22</h2><p>设计了一个把go的SSA转换成自动机的算法，经过一次遍历就可以构建了：</p>
+<ul>
+<li><code>PARAMETER</code> &amp; <code>MAKE_CHANNEL</code>: 在构建过程中维护一个channel的环境（<code>reg -&gt; channel</code>），遇到这两种操作，就往比环境里加新的元素。</li>
+<li><code>SEND</code> &amp; <code>RECV</code>: 这里是对channel的操作，但是存在一个问题，即虚拟寄存器指代哪个channel，因此需要用<code>def-use</code>来回溯一下。</li>
+<li><code>GO</code>: 这里用于确定，运行时需要几个协程自动机，我们维护一个参数绑定表（<code>&lt;site, goroutine&gt; -&gt; [ch1, ch2, ...]</code>），用于确定在<code>go</code>调用时实际传入了哪些channel。</li>
+</ul>
+<p>预计在一周左右完成一个原型，但是Go的一些语法我又基不德了（枚举，包）。明天复习一下再写。</p>
+<hr>
+<h2 id="2021-03-16"><a href="#2021-03-16" class="headerlink" title="2021-03-16"></a>2021-03-16</h2><p>今天研究了一下Go的ssa格式，发现和<code>SSA Book</code>第一章讲的基本形式差不多。</p>
+<p>然后在API上，目前已经知道了怎么去探索一个package里的所有函数。目前可以将所有需要的函数提取出来了。</p>
+<p>接下来就是要对<code>main</code>函数进行<code>walk</code>操作，先把所有channel和goroutine的基本信息都搜集出来，能够知道每一处管道操作的对象都是哪个实体；基于以上，然后再考虑对每个函数进行一次自动机构建。</p>
 <hr>
 <h2 id="2021-03-15"><a href="#2021-03-15" class="headerlink" title="2021-03-15"></a>2021-03-15</h2><p>在之前的一个月，设计了一个在自动机上的协程错误检测算法。接下来最重要的任务是把工具实现出来：要能够分析真实的Go程序！</p>
 <p>今天尝试将<code>go/ssa</code>这个包跑起来了————中间遇到了一些包依赖的问题，幸运的是，在Go的官网上找到了这些包的源码，放到<code>src</code>下竟然就可以了（原本非常担心这些正在开发中的包的API变了，但目前没有）。目前已经可以输入一个程序，打出ssa表示了！</p>
