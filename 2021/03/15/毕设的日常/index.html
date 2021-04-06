@@ -77,7 +77,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2021-03-22"><a href="#2021-03-22" class="headerlink" title="2021-03-22"></a>2021-03-22</h2><p>设计了一个把go的SSA转换成自动机的算法，经过一次遍历就可以构建了：</p>
+        <h2 id="2021-04-07"><a href="#2021-04-07" class="headerlink" title="2021-04-07"></a>2021-04-07</h2><p>好久没更新了，最近的进展比前段时间快多了，工具基本弄完了。论文也只剩下实验部分了。</p>
+<p>简要的总结下，目前的工具已经达到的效果吧：</p>
+<ul>
+<li>能够将程序从源码-&gt;SSA-&gt;协程自动机</li>
+<li>能够将程序抽象执行，并检测协程死锁</li>
+</ul>
+<p>工具开发上的一个TODO List:</p>
+<ul>
+<li>想几个启发式算法用于处理循环什么的（可以在交了初稿后弄）</li>
+<li>消除无用的基本块自动机（也在交了初稿后弄）</li>
+<li>需要用SMT solver来验证一下检测出来的路径（这个工作量太大了）</li>
+</ul>
+<p>那么，在交初稿前，最重要的工作还是——写测试程序集，做实验。这里我觉得量不是最重要的，主要是分类。明天继续想把</p>
+<hr>
+<h2 id="2021-03-22"><a href="#2021-03-22" class="headerlink" title="2021-03-22"></a>2021-03-22</h2><p>设计了一个把go的SSA转换成自动机的算法，经过一次遍历就可以构建了：</p>
 <ul>
 <li><code>PARAMETER</code> &amp; <code>MAKE_CHANNEL</code>: 在构建过程中维护一个channel的环境（<code>reg -&gt; channel</code>），遇到这两种操作，就往比环境里加新的元素。</li>
 <li><code>SEND</code> &amp; <code>RECV</code>: 这里是对channel的操作，但是存在一个问题，即虚拟寄存器指代哪个channel，因此需要用<code>def-use</code>来回溯一下。</li>
