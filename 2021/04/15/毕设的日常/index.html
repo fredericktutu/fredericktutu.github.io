@@ -63,8 +63,8 @@
   
 
         <div class="article-meta">
-          <a href="/2021/03/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/" class="article-date">
-  <time datetime="2021-03-15T15:26:49.438Z" itemprop="datePublished">2021-03-15</time>
+          <a href="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/" class="article-date">
+  <time datetime="2021-04-15T07:25:34.000Z" itemprop="datePublished">2021-04-15</time>
 </a>
           
   <div class="article-category">
@@ -77,7 +77,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2021-04-07"><a href="#2021-04-07" class="headerlink" title="2021-04-07"></a>2021-04-07</h2><p>好久没更新了，最近的进展比前段时间快多了，工具基本弄完了。论文也只剩下实验部分了。</p>
+        <h2 id="2021-04-15"><a href="#2021-04-15" class="headerlink" title="2021-04-15"></a>2021-04-15</h2><p>论文编写阶段，没有什么特别有意思的，分享一个在word加入代码的方式吧</p>
+<h3 id="之前使用的方法"><a href="#之前使用的方法" class="headerlink" title="之前使用的方法"></a>之前使用的方法</h3><p>之前我用的是这个网站<a href="https://highlightcode.com/" target="_blank" rel="noopener">HighlightCode</a>,它能够对很多语言的代码进行格式化，使其能插入文档中。</p>
+<p>比如对于这样一段程序</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">go</span> Foo()</span><br><span class="line">	<span class="keyword">go</span> Bar()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"foo"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Bar</span><span class="params">()</span></span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">"bar"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它生成的效果是这样的,它的问题是太花哨了，放在论文里不够严谨。<br><img src="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/0.png" alt="图裂了"></p>
+<h3 id="现在用的方法"><a href="#现在用的方法" class="headerlink" title="现在用的方法"></a>现在用的方法</h3><p>大概的步骤如下，主要就是利用到了word的表格，非常简单，之后打算开发一个工具来做这个事情。<br><img src="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/1.png" alt="图裂了"><br><img src="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/2.png" alt="图裂了"><br><img src="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/3.png" alt="图裂了"><br><img src="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/4.png" alt="图裂了"><br><img src="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/5.png" alt="图裂了"><br><img src="/2021/04/15/%E6%AF%95%E8%AE%BE%E7%9A%84%E6%97%A5%E5%B8%B8/6.png" alt="图裂了"></p>
+<hr>
+<h2 id="2021-04-07"><a href="#2021-04-07" class="headerlink" title="2021-04-07"></a>2021-04-07</h2><p>好久没更新了，最近的进展比前段时间快多了，工具基本弄完了。论文也只剩下实验部分了。</p>
 <p>简要的总结下，目前的工具已经达到的效果吧：</p>
 <ul>
 <li>能够将程序从源码-&gt;SSA-&gt;协程自动机</li>
